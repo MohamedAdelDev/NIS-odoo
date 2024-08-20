@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_employee_edit_view_form" model="ir.ui.view">
+        <field name="name">hr_employee_edit_view_form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="bus_service"/>
+                <field name="bus_employee"/>
+                <field name="bus_address"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="res_partner_tree_view_bus" model="ir.ui.view">
+        <field name="name">res_partner_tree_view_bus</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="contact_edit.res_partner_edit_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='student_Class']" position="after">
+
+                <field name="bus_service" invisible="1" optional="hide"/>
+                <field name="bus_number_notion" invisible="1" optional="show"/>
+                <field name="bus_address" invisible="1"/>
+                <field name="bus_parent_phone" invisible="1"/>
+
+            </xpath>
+        </field>
+    </record>
+    <record id="res_partner_edit_view_form1" model="ir.ui.view">
+        <field name="name">res_partner_edit_view_form1</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="contact_edit.res_partner_edit_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='bus_service']" position="after">
+                <field name="bus_number_notion"/>
+                <field name="bus_parent_phone"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="bus_info_form_view" model="ir.ui.view">
+        <field name="name">bus_info_form_view</field>
+        <field name="model">bus.information</field>
+        <field name="arch" type="xml">
+            <form string="Bus Information">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="bus_route"/>
+                        <field name="bus_type"/>
+                        <field name="bus_matron"/>
+                        <field name="number_of_seats"/>
+                        <field name="bus_faceplate"/>
+                    </group>
+                    <notebook>
+                        <page name="Students">
+                            <field name="bus_contact88" readonly="1">
+                                <tree editable="buttom">
+                                    <field name="name"/>
+                                    <field name="grade_level"/>
+                                    <field name="student_Class"/>
+                                    <field name="bus_address"/>
+                                    <field name="bus_parent_phone"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name = "Maintenance">
+                        </page>
+
+                    </notebook>
+                    <notebook>
+                        <page name="Staff member">
+                            <field name="bus_employee_view">
+                                <tree editable="buttom">
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+
+
+                    <!--                <notebook>-->
+                    <!--                    <page name = "Maintenance">-->
+                    <!--                    </page>-->
+                    <!--                    <page name="Students">-->
+                    <!--                        <field name="bus_contact88" readonly="1">-->
+                    <!--                            <tree editable="buttom">-->
+                    <!--                                <field name="name"/>-->
+                    <!--                                <field name="grade_level"/>-->
+                    <!--                                <field name="student_Class"/>-->
+                    <!--                                <field name="bus_address"/>-->
+                    <!--                                <field name="bus_parent_phone"/>-->
+                    <!--                            </tree>-->
+                    <!--                        </field>-->
+                    <!--                    </page>-->
+                    <!--                </notebook>-->
+                    <!--                <notebook>-->
+                    <!--                    <page name="Staff member">-->
+                    <!--                        <field name="bus_employee_view">-->
+                    <!--                            <tree editable="buttom">-->
+                    <!--                                <field name="name"/>-->
+                    <!--                            </tree>-->
+                    <!--                        </field>-->
+                    <!--                    </page>-->
+                    <!--                </notebook>-->
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="bus_info_tree_view" model="ir.ui.view">
+        <field name="name">bus_info_tree_view</field>
+        <field name="model">bus.information</field>
+        <field name="arch" type="xml">
+            <tree string="Bus Information">
+                <field name="name"/>
+                <field name="bus_route"/>
+                <field name="bus_type"/>
+                <field name="number_of_seats"/>
+                <field name="bus_faceplate"/>
+            </tree>
+        </field>
+    </record>
+    <record id="bus_info_search_view" model="ir.ui.view">
+        <field name="name">bus_info_tree_view</field>
+        <field name="model">bus.information</field>
+        <field name="arch" type="xml">
+            <search string="Bus Information">
+                <!--                <field name="bus_number"/>-->
+                <field name="bus_route"/>
+                <field name="bus_type"/>
+                <field name="number_of_seats"/>
+                <field name="bus_faceplate"/>
+                <!--                <field name="contact_bus1"/>-->
+
+            </search>
+        </field>
+    </record>
+    <record id="action_bus_information" model="ir.actions.act_window">
+        <field name="name">Bus Information</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bus.information</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_bus_information" name="Transportation Service" web_icon="bus_notion,static/description/icon.png" action="action_bus_information"/>
+    <menuitem id="menu_bus_information1" parent="menu_bus_information" sequence="10"  name="Bus Routes" action="action_bus_information"/>
+
+
+
+
+
+
+
+
+
+</odoo>

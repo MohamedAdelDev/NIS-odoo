@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bus,access_bus,model_bus_information,,1,1,1,0
+access_maintenance,access_maintenance,model_bus_maintenance,,1,1,1,0
+access_drivers,access_drivers,model_drivers_information,,1,1,1,0
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="drivers_info_view_form" model="ir.ui.view">
+        <field name="name">drivers_info_view_form</field>
+        <field name="model">drivers.information</field>
+        <field name="arch" type="xml">
+            <form string="Bus Information">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="national_id_card"/>
+                        <field name="driving_lis"/>
+                        <field name="phone_num"/>
+                        <field name="national_expiry"/>
+                        <field name="driving_expiry"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="drivers_info_view_tree" model="ir.ui.view">
+        <field name="name">drivers_info_view_tree</field>
+        <field name="model">drivers.information</field>
+        <field name="arch" type="xml">
+            <tree string="Driver Information">
+                <field name="name"/>
+                <field name="national_id_card"/>
+                <field name="driving_lis"/>
+                <field name="phone_num"/>
+                <field name="national_expiry"/>
+                <field name="driving_expiry"/>
+            </tree>
+        </field>
+    </record>
+    <record id="drivers_info_view_search" model="ir.ui.view">
+        <field name="name">drivers_info_view_search</field>
+        <field name="model">drivers.information</field>
+        <field name="arch" type="xml">
+            <search string="Bus Information">
+                <!--                <field name="bus_number"/>-->
+                <field name="name"/>
+                <field name="phone_num"/>
+
+                <!--                <field name="contact_bus1"/>-->
+
+            </search>
+        </field>
+    </record>
+    <record id="action_drivers_information" model="ir.actions.act_window">
+        <field name="name">Drivers Information</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">drivers.information</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_bus_information2" sequence="30" name="Drivers Information" parent="menu_bus_information"  action="action_drivers_information"/>
+
+
+
+
+
+
+
+
+
+</odoo>

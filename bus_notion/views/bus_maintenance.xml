@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="bus_maintenance_form_view" model="ir.ui.view">
+        <field name="name">bus_maintenance_form_view</field>
+        <field name="model">bus.maintenance</field>
+        <field name="arch" type="xml">
+            <form string="Bus Maintenance">
+                <group string="Basic Information">
+                    <field name="bus_number"/>
+                     <field name="date"/>
+                    <field name="type"/>
+
+                </group>
+                <group string="Maintenance Information" attrs="{'invisible': [('type', '!=','main')]}">
+                    <field name="name"/>
+
+                    <field name="notes"/>
+                    <field name="amount_inv"/>
+                    <field name="upload"/>
+                </group>
+                <group string="Fuel Information" attrs="{'invisible': [('type', '!=','fuel')]}">
+
+
+                    <field name="first_read"/>
+                    <field name="second_read"/>
+                    <field name="result_read"/>
+                    <field name="amount_inv"/>
+                    <field name="upload"/>
+                </group>
+
+
+            </form>
+        </field>
+    </record>
+    <record id="bus_maintenance_tree_view" model="ir.ui.view">
+        <field name="name">bus_maintenance_tree_view</field>
+        <field name="model">bus.maintenance</field>
+        <field name="arch" type="xml">
+            <tree string="Bus Maintenance">
+                <field name="bus_number"/>
+                <field name="type"/>
+                <field name="date"/>
+                <field name="amount_inv"/>
+
+            </tree>
+        </field>
+    </record>
+    <record id="bus_maintenance_view" model="ir.ui.view">
+        <field name="name">bus_maintenance_view</field>
+        <field name="model">bus.maintenance</field>
+        <field name="arch" type="xml">
+            <search string="Bus Maintenance">
+                <field name="name"/>
+                <field name="date"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_bus_maintenance" model="ir.actions.act_window">
+        <field name="name">Bus Maintenance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bus.maintenance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_maintenance" name=" Maintenance" sequence="20" parent="menu_bus_information"  action="action_bus_maintenance"/>
+
+
+
+
+
+
+
+
+
+</odoo>
