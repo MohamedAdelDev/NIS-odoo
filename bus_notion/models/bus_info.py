@@ -1,7 +1,7 @@
 from odoo import models,fields,api,_
 class BusInformation(models.Model):
     _name = 'bus.information'
-    name = fields.Char('Bus number')
+    name = fields.Char('Bus numbers')
     bus_name= fields.Char('Bus name')
     bus_type = fields.Selection([
         ('hi As', 'High As'),
